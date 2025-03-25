@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/isaac-rnd/simple-dynamic-todo-lister/static/css/main.cfb770ad.css",
+    "main.js": "/isaac-rnd/simple-dynamic-todo-lister/static/js/main.cd5198d2.js",
+    "static/js/453.ac79db8d.chunk.js": "/isaac-rnd/simple-dynamic-todo-lister/static/js/453.ac79db8d.chunk.js",
+    "index.html": "/isaac-rnd/simple-dynamic-todo-lister/index.html",
+    "main.cfb770ad.css.map": "/isaac-rnd/simple-dynamic-todo-lister/static/css/main.cfb770ad.css.map",
+    "main.cd5198d2.js.map": "/isaac-rnd/simple-dynamic-todo-lister/static/js/main.cd5198d2.js.map",
+    "453.ac79db8d.chunk.js.map": "/isaac-rnd/simple-dynamic-todo-lister/static/js/453.ac79db8d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cfb770ad.css",
+    "static/js/main.cd5198d2.js"
+  ]
+}
