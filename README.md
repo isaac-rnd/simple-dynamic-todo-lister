@@ -1,46 +1,75 @@
-# Getting Started with Create React App
+# Simple Dynamic To-Do Lister
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern and interactive to-do list application built with React and Tailwind CSS. This app allows you to manage your tasks efficiently with features like drag-and-drop reordering, local storage persistence, and a clean, user-friendly interface.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+*   **Add Tasks:** Easily add new tasks with optional hour estimates.
+*   **Delete Tasks:** Remove completed or unnecessary tasks.
+*   **Drag and Drop Reordering:** Prioritize your tasks by dragging and dropping them into the desired order.
+*   **Persistent Data:** Your tasks are saved in your browser's local storage, so they'll be there even if you refresh the page or close the browser.
+*   **Enter Key Support:** Add tasks quickly by pressing the "Enter" key in the task input field.
+*   **Sticky Input:** The task input area stays at the top of the screen, making it easy to add new tasks at any time.
+*   **Horizontal Task List:** Tasks are displayed in a horizontal, wrapping layout, making efficient use of screen space.
+*   **Responsive Design:** The app is designed to work well on various screen sizes.
+* **Futuristic and Elegant UI:** The app has a nice UI with tailwind.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+*   **React:** A JavaScript library for building user interfaces.
+*   **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
+*   **TypeScript:** A typed superset of JavaScript.
+* **Local Storage:** To persist the data locally.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+1.  **Clone the repository:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ```bash
+    git clone <repository-url>
+    ```
 
-### `npm run build`
+2.  **Navigate to the project directory:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```bash
+    cd todo-app
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3.  **Install dependencies:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ```bash
+    npm install
+    ```
 
-### `npm run eject`
+4.  **Start the development server:**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    ```bash
+    npm start
+    ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    This will start the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## How to Use
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1.  **Add a Task:** Type your task in the "Add a task..." input field. Optionally, enter the estimated hours for the task in the "Hours" field. Press "Enter" or click the "Add" button to add the task.
+2.  **Reorder Tasks:** Click and drag a task to a new position in the list to change its priority.
+3.  **Delete a Task:** Click the "Delete" button next to a task to remove it.
 
-## Learn More
+## Contributing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1.  Fork the repository.
+2.  Create a new branch for your feature or bug fix.
+3.  Make your changes and commit them.
+4.  Push your changes to your forked repository.
+5.  Submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Author
+
+Made with ❤️ from Bengaluru.
+[Checkout Code](https://github.com/isaac-rnd/simple-dynamic-todo-lister)
