@@ -10,7 +10,6 @@ A modern and interactive to-do list application built with React and Tailwind CS
 *   **Persistent Data:** Your tasks are saved in your browser's local storage, so they'll be there even if you refresh the page or close the browser.
 *   **Enter Key Support:** Add tasks quickly by pressing the "Enter" key in the task input field.
 *   **Sticky Input:** The task input area stays at the top of the screen, making it easy to add new tasks at any time.
-*   **Horizontal Task List:** Tasks are displayed in a horizontal, wrapping layout, making efficient use of screen space.
 *   **Responsive Design:** The app is designed to work well on various screen sizes.
 * **Futuristic and Elegant UI:** The app has a nice UI with tailwind.
 
