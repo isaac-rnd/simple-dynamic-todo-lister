@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, KeyboardEvent } from 'react';
+import react, { useState, useRef, useEffect, KeyboardEvent } from 'react';
 import { Task } from './types';
 
 const LOCAL_STORAGE_KEY = 'todoApp.tasks';
@@ -15,6 +15,9 @@ function App() {
   const [newTaskHours, setNewTaskHours] = useState<number | ''>('');
   const inputRef = useRef<HTMLInputElement>(null);
   const draggedItem = useRef<number | null>(null);
+  const [editingTask, setEditingTask] = useState<string | null>(null);
+  const [editedTaskContent, setEditedTaskContent] = useState('');
+  const [editedTaskHours, setEditedTaskHours] = useState<number | ''>('');
 
   useEffect(() => {
     if (inputRef.current) {
@@ -76,6 +79,38 @@ function App() {
     draggedItem.current = null;
   };
 
+  const handleEditTask = (taskId: string) => {
+    const taskToEdit = tasks.find((task) => task.id === taskId);
+    if (taskToEdit) {
+      setEditingTask(taskId);
+      setEditedTaskContent(taskToEdit.text);
+      setEditedTaskHours(taskToEdit.hours);
+    }
+  };
+
+  const handleSaveEdit = (taskId: string) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === taskId
+          ? {
+              ...task,
+              text: editedTaskContent,
+              hours: editedTaskHours === '' ? 0 : Number(editedTaskHours),
+            }
+          : task
+      )
+    );
+    setEditingTask(null);
+    setEditedTaskContent('');
+    setEditedTaskHours('');
+  };
+
+  const handleCancelEdit = () => {
+    setEditingTask(null);
+    setEditedTaskContent('');
+    setEditedTaskHours('');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 to-blue-700 text-white p-8 flex flex-col">
       <div className="flex-grow flex flex-col items-center w-full">
@@ -118,16 +153,57 @@ function App() {
               onDrop={() => handleDrop(index)}
               className="bg-gray-800 bg-opacity-50 p-4 rounded-lg shadow-md mb-4 flex items-center justify-between cursor-move"
             >
-              <div className="flex-grow">
-                <p className="text-lg font-medium">{task.text}</p>
-                <p className="text-sm text-gray-300">Hours: {task.hours}</p>
-              </div>
-              <button
-                onClick={() => handleDeleteTask(task.id)}
-                className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-              >
-                Delete
-              </button>
+              {editingTask === task.id ? (
+                <div className="flex-grow flex flex-col space-y-2">
+                  <input
+                    type="text"
+                    value={editedTaskContent}
+                    onChange={(e) => setEditedTaskContent(e.target.value)}
+                    className="bg-gray-700 bg-opacity-50 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                  <input
+                    type="number"
+                    value={editedTaskHours}
+                    onChange={(e) => setEditedTaskHours(Number(e.target.value))}
+                    className="w-30 bg-gray-700 bg-opacity-50 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                  <div className="flex space-x-2">
+                    <button
+                      onClick={() => handleSaveEdit(task.id)}
+                      className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    >
+                      Save
+                    </button>
+                    <button
+                      onClick={handleCancelEdit}
+                      className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex-grow">
+                  <p className="text-lg font-medium">{task.text}</p>
+                  <p className="text-sm text-gray-300">Hours: {task.hours}</p>
+                </div>
+              )}
+              {editingTask !== task.id && (
+                <div className="flex space-x-2">
+                  <button
+                    onClick={() => handleEditTask(task.id)}
+                    className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDeleteTask(task.id)}
+                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                  >
+                    Delete
+                  </button>
+                </div>
+              )}
             </li>
           ))}
         </ul>
